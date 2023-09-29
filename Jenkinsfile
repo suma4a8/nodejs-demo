@@ -6,13 +6,13 @@ pipeline {
     stages { 
         stage('SCM Checkout') {
             steps{
-            git 'https://github.com/suma4a8/nodejs-demo.git'
+            git 'https://github.com/nodejs/nodejs-demo.git'
             }
         }
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t suma4a8/nodeapp:$BUILD_NUMBER .'
+                sh 'docker build -t nodejs/nodeapp:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push suma4a8/nodeapp:$BUILD_NUMBER'
+                sh 'docker push nodejs/nodeapp:$BUILD_NUMBER'
             }
         }
 }

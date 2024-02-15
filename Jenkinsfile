@@ -1,7 +1,7 @@
 pipeline {
     agent {label "docker-slave"}
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('sumanth4a8')
+    DOCKERHUB_CREDENTIALS = credentials('deploy-docker')
     }
     stages { 
         stage('SCM Checkout') {
